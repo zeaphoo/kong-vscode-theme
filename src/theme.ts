@@ -83,26 +83,26 @@ export default function getTheme({
       "progressBar.background": color.accent.emphasis,
 
       "titleBar.activeForeground": color.fg.muted,
-      "titleBar.activeBackground": color.canvas.default,
+      "titleBar.activeBackground": lightDark("#e0e0e0", color.canvas.default),
       "titleBar.inactiveForeground": color.fg.muted,
-      "titleBar.inactiveBackground": color.canvas.inset,
+      "titleBar.inactiveBackground": lightDark("#e0e0e0", color.canvas.inset),
 
       "activityBar.foreground": color.fg.default,
       "activityBar.inactiveForeground": color.fg.muted,
-      "activityBar.background": color.canvas.default,
+      "activityBar.background": lightDark("#e0e0e0", color.canvas.default),
       "activityBarBadge.foreground": color.fg.onEmphasis,
       "activityBarBadge.background": color.accent.emphasis,
       "activityBar.activeBorder": color.primer.border.active,
 
       "sideBar.foreground": color.fg.default,
       "sideBar.background": lightDark(
-        scale.gray[0],
+        "#ececec",
         color.canvas.inset
       ),
       "sideBarTitle.foreground": color.fg.default,
       "sideBarSectionHeader.foreground": color.fg.default,
       "sideBarSectionHeader.background": lightDark(
-        scale.white,
+        "#ececec",
         color.canvas.inset
       ),
 
@@ -132,8 +132,8 @@ export default function getTheme({
       "quickInput.foreground": color.fg.default,
 
       "statusBar.foreground": color.fg.muted,
-      "statusBar.background": color.canvas.default,
-      "statusBar.noFolderBackground": color.canvas.default,
+      "statusBar.background": lightDark("#e0e0e0", color.canvas.default),
+      "statusBar.noFolderBackground": lightDark("#e0e0e0", color.canvas.default),
       "statusBar.debuggingForeground": color.fg.onEmphasis,
       "statusBar.debuggingBackground": color.danger.emphasis,
       "statusBarItem.prominentBackground": color.neutral.muted,
@@ -146,16 +146,16 @@ export default function getTheme({
       "statusBarItem.activeBackground": alpha(color.fg.default, 0.12),
       "statusBarItem.focusBorder": color.accent.emphasis,
 
-      "editorGroupHeader.tabsBackground": color.canvas.inset,
+      "editorGroupHeader.tabsBackground": lightDark("#ececec", color.canvas.inset),
       "editorGroupHeader.tabsBorder": "#00000000",
       "editorGroup.border": "#00000000",
 
       "tab.activeForeground": color.fg.default,
       "tab.inactiveForeground": color.fg.muted,
-      "tab.inactiveBackground": color.canvas.inset,
-      "tab.activeBackground": color.canvas.default,
-      "tab.hoverBackground": color.canvas.default,
-      "tab.unfocusedHoverBackground": color.neutral.subtle,
+      "tab.inactiveBackground": lightDark("#ececec", color.canvas.inset),
+      "tab.activeBackground": lightDark("#f5f5f5", color.canvas.default),
+      "tab.hoverBackground": lightDark("#f5f5f5", color.canvas.default),
+      "tab.unfocusedHoverBackground": lightDark("#ececec", color.neutral.subtle),
       "tab.activeBorderTop": color.primer.border.active,
 
       "breadcrumb.foreground": color.fg.muted,
@@ -165,7 +165,7 @@ export default function getTheme({
 
       "editor.foreground": color.fg.default,
       "editor.background": lightDark(
-        scale.white,
+        "#f5f5f5",
         color.canvas.default
       ),
       "editorWidget.background": color.canvas.overlay,
