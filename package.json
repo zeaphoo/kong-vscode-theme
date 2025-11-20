@@ -2,7 +2,7 @@
   "name": "kong-vscode-theme",
   "displayName": "Kong Theme",
   "description": "Kong theme for VS Code",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "publisher": "zeaphoo",
   "license": "MIT",
   "icon": "icon.png",
