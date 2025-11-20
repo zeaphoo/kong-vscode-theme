@@ -1,6 +1,6 @@
-# Picta VS Code Themes
+# Kong VS Code Themes
 
-_Picta_ (Latin “decorated, painted, coloured”) is a fork of the [GitHub VS Code themes](https://github.com/primer/github-vscode-theme) providing much more complete source code highlighting with a modified and extended colour palette:
+_Kong_ is a fork of the [Picta VS Code themes](https://github.com/KurtBoehm/picta-vscode-theme) providing much more complete source code highlighting with a modified and extended colour palette:
 
 <p align="center">
   <a title="Colour Swatch" href="http://github.com/KurtBoehm/picta-vscode-theme"><img src="https://raw.githubusercontent.com/KurtBoehm/picta-vscode-theme/refs/heads/main/gh/swatch.png" alt="Colour Swatch" width="50%" /></a>
@@ -30,10 +30,10 @@ The extended themes look as follows when applied to a C++ program using `clangd`
 
 ## Install
 
-1. Go to [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=KurtBoehm.picta-vscode-theme).
+1. Go to [VS Marketplace](https://marketplace.visualstudio.com/items?itemName=zeaphoo.kong-vscode-theme).
 2. Click on the "Install" button.
 3. Then [select a theme](https://code.visualstudio.com/docs/getstarted/themes#_selecting-the-color-theme):
-   - `Picta Light`
-   - `Picta Light Extended`
-   - `Picta Dark`
-   - `Picta Dark Extended`
+   - `Kong Light`
+   - `Kong Light Extended`
+   - `Kong Dark`
+   - `Kong Dark Extended`

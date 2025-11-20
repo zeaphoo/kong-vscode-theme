@@ -52,11 +52,9 @@ export default function getTheme({
       "textLink.foreground": color.accent.fg,
       "textLink.activeForeground": color.accent.fg,
       "textBlockQuote.background": color.canvas.inset,
-      "textBlockQuote.border": color.border.default,
       "textCodeBlock.background": color.neutral.muted,
       "textPreformat.foreground": color.fg.muted,
       "textPreformat.background": color.neutral.muted,
-      "textSeparator.foreground": color.border.muted,
 
       "icon.foreground": color.fg.muted,
       "keybindingLabel.foreground": color.fg.default,
@@ -70,15 +68,12 @@ export default function getTheme({
       "button.secondaryHoverBackground": color.btn.hoverBg,
 
       "checkbox.background": color.canvas.subtle,
-      "checkbox.border": color.border.default,
 
       "dropdown.background": color.canvas.overlay,
-      "dropdown.border": color.border.default,
       "dropdown.foreground": color.fg.default,
       "dropdown.listBackground": color.canvas.overlay,
 
       "input.background": color.canvas.default,
-      "input.border": color.border.default,
       "input.foreground": color.fg.default,
       "input.placeholderForeground": color.fg.subtle,
 
@@ -91,7 +86,6 @@ export default function getTheme({
       "titleBar.activeBackground": color.canvas.default,
       "titleBar.inactiveForeground": color.fg.muted,
       "titleBar.inactiveBackground": color.canvas.inset,
-      "titleBar.border": color.border.default,
 
       "activityBar.foreground": color.fg.default,
       "activityBar.inactiveForeground": color.fg.muted,
@@ -99,15 +93,18 @@ export default function getTheme({
       "activityBarBadge.foreground": color.fg.onEmphasis,
       "activityBarBadge.background": color.accent.emphasis,
       "activityBar.activeBorder": color.primer.border.active,
-      "activityBar.border": color.border.default,
 
       "sideBar.foreground": color.fg.default,
-      "sideBar.background": color.canvas.inset,
-      "sideBar.border": color.border.default,
+      "sideBar.background": lightDark(
+        scale.gray[0],
+        color.canvas.inset
+      ),
       "sideBarTitle.foreground": color.fg.default,
       "sideBarSectionHeader.foreground": color.fg.default,
-      "sideBarSectionHeader.background": color.canvas.inset,
-      "sideBarSectionHeader.border": color.border.default,
+      "sideBarSectionHeader.background": lightDark(
+        scale.white,
+        color.canvas.inset
+      ),
 
       "list.hoverForeground": color.fg.default,
       "list.inactiveSelectionForeground": color.fg.default,
@@ -126,20 +123,16 @@ export default function getTheme({
       "notificationCenterHeader.background": color.canvas.subtle,
       "notifications.foreground": color.fg.default,
       "notifications.background": color.canvas.overlay,
-      "notifications.border": color.border.default,
       "notificationsErrorIcon.foreground": color.danger.fg,
       "notificationsWarningIcon.foreground": color.attention.fg,
       "notificationsInfoIcon.foreground": color.accent.fg,
 
-      "pickerGroup.border": color.border.default,
       "pickerGroup.foreground": color.fg.muted,
       "quickInput.background": color.canvas.overlay,
       "quickInput.foreground": color.fg.default,
 
       "statusBar.foreground": color.fg.muted,
       "statusBar.background": color.canvas.default,
-      "statusBar.border": color.border.default,
-      "statusBar.focusBorder": alpha(color.accent.emphasis, 0.5),
       "statusBar.noFolderBackground": color.canvas.default,
       "statusBar.debuggingForeground": color.fg.onEmphasis,
       "statusBar.debuggingBackground": color.danger.emphasis,
@@ -154,8 +147,8 @@ export default function getTheme({
       "statusBarItem.focusBorder": color.accent.emphasis,
 
       "editorGroupHeader.tabsBackground": color.canvas.inset,
-      "editorGroupHeader.tabsBorder": color.border.default,
-      "editorGroup.border": color.border.default,
+      "editorGroupHeader.tabsBorder": "#00000000",
+      "editorGroup.border": "#00000000",
 
       "tab.activeForeground": color.fg.default,
       "tab.inactiveForeground": color.fg.muted,
@@ -163,10 +156,6 @@ export default function getTheme({
       "tab.activeBackground": color.canvas.default,
       "tab.hoverBackground": color.canvas.default,
       "tab.unfocusedHoverBackground": color.neutral.subtle,
-      "tab.border": color.border.default,
-      "tab.unfocusedActiveBorderTop": color.border.default,
-      "tab.activeBorder": color.canvas.default,
-      "tab.unfocusedActiveBorder": color.canvas.default,
       "tab.activeBorderTop": color.primer.border.active,
 
       "breadcrumb.foreground": color.fg.muted,
@@ -175,7 +164,10 @@ export default function getTheme({
       "breadcrumbPicker.background": color.canvas.overlay,
 
       "editor.foreground": color.fg.default,
-      "editor.background": color.canvas.default,
+      "editor.background": lightDark(
+        scale.white,
+        color.canvas.default
+      ),
       "editorWidget.background": color.canvas.overlay,
       "editor.foldBackground": alpha(color.neutral.emphasis, 0.1),
       "editor.lineHighlightBackground": color.codemirror.activelineBg,
@@ -256,11 +248,10 @@ export default function getTheme({
       ),
 
       "panel.background": color.canvas.inset,
-      "panel.border": color.border.default,
+      "panel.border": "#00000000",
       "panelTitle.activeBorder": color.primer.border.active,
       "panelTitle.activeForeground": color.fg.default,
       "panelTitle.inactiveForeground": color.fg.muted,
-      "panelInput.border": color.border.default,
 
       "debugIcon.breakpointForeground": color.danger.fg,
 

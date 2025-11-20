@@ -3,23 +3,23 @@ import getTheme from "./theme";
 
 const lightTheme = getTheme({
   theme: "light",
-  name: "Picta Light",
+  name: "Kong Light",
   extended: false,
 });
 const lightThemeEx = getTheme({
   theme: "light",
-  name: "Picta Light Extended",
+  name: "Kong Light Extended",
   extended: true,
 });
 
 const darkTheme = getTheme({
   theme: "dark",
-  name: "Picta Dark",
+  name: "Kong Dark",
   extended: false,
 });
 const darkThemeEx = getTheme({
   theme: "dark",
-  name: "Picta Dark Extended",
+  name: "Kong Dark Extended",
   extended: true,
 });
 

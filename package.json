@@ -1,9 +1,9 @@
 {
-  "name": "picta-vscode-theme",
-  "displayName": "Picta Theme",
-  "description": "Picta theme for VS Code",
-  "version": "1.0.6",
-  "publisher": "KurtBoehm",
+  "name": "kong-vscode-theme",
+  "displayName": "Kong Theme",
+  "description": "Kong theme for VS Code",
+  "version": "1.0.7",
+  "publisher": "zeaphoo",
   "license": "MIT",
   "icon": "icon.png",
   "galleryBanner": {
@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KurtBoehm/picta-vscode-theme"
+    "url": "https://github.com/zeaphoo/kong-vscode-theme"
   },
   "bugs": {
-    "url": "https://github.com/KurtBoehm/picta-vscode-theme/issues"
+    "url": "https://github.com/zeaphoo/kong-vscode-theme/issues"
   },
   "engines": {
     "vscode": "^1.43.0"
@@ -25,29 +25,29 @@
   ],
   "keywords": [
     "theme",
-    "picta",
+    "kong",
     "light",
     "dark"
   ],
   "contributes": {
     "themes": [
       {
-        "label": "Picta Light",
+        "label": "Kong Light",
         "uiTheme": "vs",
         "path": "./themes/light.json"
       },
       {
-        "label": "Picta Light Extended",
+        "label": "Kong Light Extended",
         "uiTheme": "vs",
         "path": "./themes/light-ex.json"
       },
       {
-        "label": "Picta Dark",
+        "label": "Kong Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dark.json"
       },
       {
-        "label": "Picta Dark Extended",
+        "label": "Kong Dark Extended",
         "uiTheme": "vs-dark",
         "path": "./themes/dark-ex.json"
       }
@@ -65,12 +65,12 @@
   "scripts": {
     "start": "tsx watch src src/index.ts",
     "build": "npx tsx src/index.ts && mkdir -p build",
-    "package": "vsce package -o ./build/picta-vscode-theme.vsix",
+    "package": "vsce package -o ./build/kong-vscode-theme.vsix",
     "prepublishOnly": "npm run build && vsce publish",
     "release": "changeset publish"
   },
   "__metadata": {
-    "publisherDisplayName": "Kurt Böhm"
+    "publisherDisplayName": "Zhuo Wei"
   },
   "publishConfig": {
     "access": "public"

@@ -33,7 +33,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: 'What version of `picta-vscode-theme` are you using?'
+      description: 'What version of `kong-vscode-theme` are you using?'
       placeholder: v1.0.6
     validations:
       required: true
@@ -44,10 +44,10 @@ body:
       description: In which themes(s) are you experiencing the issue?
       multiple: true
       options:
-        - Picta Light
-        - Picta Light High Contrast
-        - Picta Light Colorblind
-        - Picta Dark
-        - Picta Dark High Contrast
-        - Picta Dark Colorblind
-        - Picta Dark Dimmed
+        - Kong Light
+        - Kong Light High Contrast
+        - Kong Light Colorblind
+        - Kong Dark
+        - Kong Dark High Contrast
+        - Kong Dark Colorblind
+        - Kong Dark Dimmed
