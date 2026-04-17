@@ -2,7 +2,8 @@
   "name": "kong-vscode-theme",
   "displayName": "Kong Theme",
   "description": "Kong theme for VS Code",
-  "version": "1.0.10",
+  "version": "2.0.0",
+  "type": "module",
   "publisher": "zeaphoo",
   "license": "MIT",
   "icon": "icon.png",
@@ -37,34 +38,22 @@
         "path": "./themes/light.json"
       },
       {
-        "label": "Kong Light Extended",
-        "uiTheme": "vs",
-        "path": "./themes/light-ex.json"
-      },
-      {
         "label": "Kong Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/dark.json"
-      },
-      {
-        "label": "Kong Dark Extended",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dark-ex.json"
       }
     ]
   },
   "devDependencies": {
     "@changesets/cli": "^2.17.0",
     "@primer/primitives": "7.10.0",
-    "@types/chroma-js": "^3.1.1",
     "chroma-js": "^2.1.2",
     "color": "^3.1.2",
-    "tsx": "^4.20.3",
     "vsce": "^1.100.1"
   },
   "scripts": {
-    "start": "tsx watch src src/index.ts",
-    "build": "npx tsx src/index.ts && mkdir -p build",
+    "start": "node --watch src/index.js",
+    "build": "node src/index.js && mkdir -p build",
     "package": "vsce package -o ./build/kong-vscode-theme.vsix",
     "prepublishOnly": "npm run build && vsce publish",
     "release": "changeset publish"
@@ -74,5 +63,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

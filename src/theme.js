@@ -1,42 +1,22 @@
 import chroma from "chroma-js";
-import { getColors, pictaColors, Colors, Theme } from "./colors.js";
-
-// Choosing colors from primer/primitives
-// There are multiple ways to define what color is used:
-
-// 1. Global variable
-//    e.g. "textLink.foreground": color.fg.default,
-// 2. Color scale
-//    e.g. "textLink.foreground": scale.blue[5],
-// 3. Per theme. Useful when a certain theme needs an exception
-//    e.g. "textLink.foregrou4nd": themes({ light: scale.blue[5], light_high_contrast: scale.blue[5], light_colorblind: scale.blue[5], dark: scale.blue[2], dark_high_contrast: scale.blue[3], dark_colorblind: scale.blue[2], dark_dimmed: scale.blue[3] }),
-
-interface Options {
-  light?: string | undefined;
-  dark?: string | undefined;
-}
+import { getColors, pictaColors } from "./colors.js";
 
 export default function getTheme({
   theme,
   name,
-  extended,
-}: {
-  theme: Theme;
-  name: string;
-  extended: boolean;
 }) {
-  // Usage: themes({ light: "lightblue", light_high_contrast: "lightblue", light_colorblind: "lightblue", dark: "darkblue", dark_high_contrast: "darkblue", dark_colorblind: "darkblue", dark_dimmed: "royalblue" })
-  const themes = (options: Options) => options[theme];
+  // Usage: themes({ light: "lightblue", dark: "darkblue" })
+  const themes = (options) => options[theme];
   const rawColors = getColors(theme);
   const color = changeColorToHexAlphas(rawColors);
-  const scale = color.scale; // Usage: scale.blue[6]
+  const scale = color.scale;
 
-  const onlyDark = (color: string) => themes({ dark: color });
-  const lightDark = (light: string, dark: string) =>
+  const onlyDark = (color) => themes({ dark: color });
+  const lightDark = (light, dark) =>
     themes({ light: light, dark: dark });
-  const pictaLightDark = (p: { medium: string; light: string }) =>
+  const pictaLightDark = (p) =>
     lightDark(p.medium, p.light);
-  const alpha = (color: string, alpha: number) =>
+  const alpha = (color, alpha) =>
     chroma(color)
       .alpha(alpha)
       .hex();
@@ -52,6 +32,7 @@ export default function getTheme({
       "textLink.foreground": color.accent.fg,
       "textLink.activeForeground": color.accent.fg,
       "textBlockQuote.background": color.canvas.inset,
+      "textBlockQuote.border": color.border.default,
       "textCodeBlock.background": color.neutral.muted,
       "textPreformat.foreground": color.fg.muted,
       "textPreformat.background": color.neutral.muted,
@@ -68,12 +49,15 @@ export default function getTheme({
       "button.secondaryHoverBackground": color.btn.hoverBg,
 
       "checkbox.background": color.canvas.subtle,
+      "checkbox.border": color.border.default,
 
       "dropdown.background": color.canvas.overlay,
+      "dropdown.border": color.border.default,
       "dropdown.foreground": color.fg.default,
       "dropdown.listBackground": color.canvas.overlay,
 
       "input.background": color.canvas.default,
+      "input.border": color.border.default,
       "input.foreground": color.fg.default,
       "input.placeholderForeground": color.fg.subtle,
 
@@ -83,28 +67,26 @@ export default function getTheme({
       "progressBar.background": color.accent.emphasis,
 
       "titleBar.activeForeground": color.fg.muted,
-      "titleBar.activeBackground": lightDark("#e0e0e0", color.canvas.default),
+      "titleBar.activeBackground": color.canvas.default,
       "titleBar.inactiveForeground": color.fg.muted,
-      "titleBar.inactiveBackground": lightDark("#e0e0e0", color.canvas.inset),
+      "titleBar.inactiveBackground": color.canvas.inset,
+      "titleBar.border": color.border.default,
 
       "activityBar.foreground": color.fg.default,
       "activityBar.inactiveForeground": color.fg.muted,
-      "activityBar.background": lightDark("#e0e0e0", color.canvas.default),
+      "activityBar.background": color.canvas.default,
       "activityBarBadge.foreground": color.fg.onEmphasis,
       "activityBarBadge.background": color.accent.emphasis,
       "activityBar.activeBorder": color.primer.border.active,
+      "activityBar.border": color.border.default,
 
       "sideBar.foreground": color.fg.default,
-      "sideBar.background": lightDark(
-        "#ececec",
-        color.canvas.inset
-      ),
+      "sideBar.background": color.canvas.inset,
+      "sideBar.border": color.border.default,
       "sideBarTitle.foreground": color.fg.default,
       "sideBarSectionHeader.foreground": color.fg.default,
-      "sideBarSectionHeader.background": lightDark(
-        "#ececec",
-        color.canvas.inset
-      ),
+      "sideBarSectionHeader.background": color.canvas.inset,
+      "sideBarSectionHeader.border": color.border.default,
 
       "list.hoverForeground": color.fg.default,
       "list.inactiveSelectionForeground": color.fg.default,
@@ -123,17 +105,20 @@ export default function getTheme({
       "notificationCenterHeader.background": color.canvas.subtle,
       "notifications.foreground": color.fg.default,
       "notifications.background": color.canvas.overlay,
+      "notifications.border": color.border.default,
       "notificationsErrorIcon.foreground": color.danger.fg,
       "notificationsWarningIcon.foreground": color.attention.fg,
       "notificationsInfoIcon.foreground": color.accent.fg,
 
+      "pickerGroup.border": color.border.default,
       "pickerGroup.foreground": color.fg.muted,
       "quickInput.background": color.canvas.overlay,
       "quickInput.foreground": color.fg.default,
 
       "statusBar.foreground": color.fg.muted,
-      "statusBar.background": lightDark("#e0e0e0", color.canvas.default),
-      "statusBar.noFolderBackground": lightDark("#e0e0e0", color.canvas.default),
+      "statusBar.background": color.canvas.default,
+      "statusBar.border": color.border.default,
+      "statusBar.noFolderBackground": color.canvas.default,
       "statusBar.debuggingForeground": color.fg.onEmphasis,
       "statusBar.debuggingBackground": color.danger.emphasis,
       "statusBarItem.prominentBackground": color.neutral.muted,
@@ -146,16 +131,20 @@ export default function getTheme({
       "statusBarItem.activeBackground": alpha(color.fg.default, 0.12),
       "statusBarItem.focusBorder": color.accent.emphasis,
 
-      "editorGroupHeader.tabsBackground": lightDark("#ececec", color.canvas.inset),
-      "editorGroupHeader.tabsBorder": "#00000000",
-      "editorGroup.border": "#00000000",
+      "editorGroupHeader.tabsBackground": color.canvas.inset,
+      "editorGroupHeader.tabsBorder": color.border.default,
+      "editorGroup.border": color.border.default,
 
       "tab.activeForeground": color.fg.default,
       "tab.inactiveForeground": color.fg.muted,
-      "tab.inactiveBackground": lightDark("#ececec", color.canvas.inset),
-      "tab.activeBackground": lightDark("#f5f5f5", color.canvas.default),
-      "tab.hoverBackground": lightDark("#f5f5f5", color.canvas.default),
-      "tab.unfocusedHoverBackground": lightDark("#ececec", color.neutral.subtle),
+      "tab.inactiveBackground": color.canvas.inset,
+      "tab.activeBackground": color.canvas.default,
+      "tab.hoverBackground": color.canvas.default,
+      "tab.unfocusedHoverBackground": color.neutral.subtle,
+      "tab.border": color.border.default,
+      "tab.unfocusedActiveBorderTop": color.border.default,
+      "tab.activeBorder": color.canvas.default,
+      "tab.unfocusedActiveBorder": color.canvas.default,
       "tab.activeBorderTop": color.primer.border.active,
 
       "breadcrumb.foreground": color.fg.muted,
@@ -164,10 +153,7 @@ export default function getTheme({
       "breadcrumbPicker.background": color.canvas.overlay,
 
       "editor.foreground": color.fg.default,
-      "editor.background": lightDark(
-        "#f5f5f5",
-        color.canvas.default
-      ),
+      "editor.background": color.canvas.default,
       "editorWidget.background": color.canvas.overlay,
       "editor.foldBackground": alpha(color.neutral.emphasis, 0.1),
       "editor.lineHighlightBackground": color.codemirror.activelineBg,
@@ -248,10 +234,11 @@ export default function getTheme({
       ),
 
       "panel.background": color.canvas.inset,
-      "panel.border": "#00000000",
+      "panel.border": color.border.default,
       "panelTitle.activeBorder": color.primer.border.active,
       "panelTitle.activeForeground": color.fg.default,
       "panelTitle.inactiveForeground": color.fg.muted,
+      "panelInput.border": color.border.default,
 
       "debugIcon.breakpointForeground": color.danger.fg,
 
@@ -395,7 +382,7 @@ export default function getTheme({
         scale.purple[5],
         scale.purple[2]
       ),
-      "editorBracketHighlight.unexpectedBracket.foreground": color.fg.muted, // gray
+      "editorBracketHighlight.unexpectedBracket.foreground": color.fg.muted,
 
       "gitDecoration.addedResourceForeground": color.success.fg,
       "gitDecoration.modifiedResourceForeground": color.attention.fg,
@@ -456,7 +443,6 @@ export default function getTheme({
         scope: "variable.other.enummember",
         settings: {
           foreground: pictaLightDark(pictaColors.blue),
-          fontStyle: "italic",
         },
       },
       {
@@ -498,7 +484,6 @@ export default function getTheme({
         scope: "entity.name.function.member",
         settings: {
           foreground: pictaLightDark(pictaColors.green),
-          fontStyle: "italic",
         },
       },
       {
@@ -583,21 +568,15 @@ export default function getTheme({
       {
         name: "Constant",
         scope: ["variable.other.constant", "support.constant"],
-        settings: extended
-          ? {
-              foreground: pictaLightDark(pictaColors.orange),
-              fontStyle: "underline",
-            }
-          : {
-              foreground: pictaLightDark(pictaColors.orange),
-            },
+        settings: {
+          foreground: pictaLightDark(pictaColors.orange),
+        },
       },
       {
         name: "Property",
         scope: "variable.other.property",
         settings: {
           foreground: pictaLightDark(pictaColors.orange),
-          fontStyle: "italic",
         },
       },
       {
@@ -605,7 +584,6 @@ export default function getTheme({
         scope: "variable.other.constant.property",
         settings: {
           foreground: pictaLightDark(pictaColors.orange),
-          fontStyle: extended ? "italic underline" : "italic",
         },
       },
       {
@@ -623,35 +601,31 @@ export default function getTheme({
       {
         scope: "invalid.broken",
         settings: {
-          fontStyle: "italic",
           foreground: lightDark(scale.red[7], scale.red[2]),
         },
       },
       {
         scope: "invalid.deprecated",
         settings: {
-          fontStyle: "italic",
           foreground: lightDark(scale.red[7], scale.red[2]),
         },
       },
       {
         scope: "invalid.illegal",
         settings: {
-          fontStyle: "italic",
           foreground: lightDark(scale.red[7], scale.red[2]),
         },
       },
       {
         scope: "invalid.unimplemented",
         settings: {
-          fontStyle: "italic",
           foreground: lightDark(scale.red[7], scale.red[2]),
         },
       },
       {
         scope: "carriage-return",
         settings: {
-          fontStyle: "italic underline",
+          fontStyle: "underline",
           background: lightDark(scale.red[5], scale.red[3]),
           foreground: lightDark(scale.gray[0], scale.gray[0]),
           content: "^M",
@@ -727,7 +701,6 @@ export default function getTheme({
       {
         scope: "markup.italic",
         settings: {
-          fontStyle: "italic",
           foreground: color.fg.default,
         },
       },
@@ -852,28 +825,23 @@ export default function getTheme({
     ],
     semanticHighlighting: true,
     semanticTokenColors: {
-      // custom modifier in basedpyright
       "*.argument": {
         bold: true,
       },
-      // custom modifier in basedpyright
       "*.classMember": {
-        italic: true,
       },
-      "*.readonly": extended ? { underline: true } : {},
+      "*.readonly": {},
       concept: {
         foreground: pictaLightDark(pictaColors.purple),
       },
       "function.classScope": {
         foreground: pictaLightDark(pictaColors.green),
-        fontStyle: "italic",
       },
       module: {
         foreground: pictaLightDark(pictaColors.pink),
       },
       method: {
         foreground: pictaLightDark(pictaColors.green),
-        fontStyle: "italic",
       },
       namespace: {
         foreground: pictaLightDark(pictaColors.pink),
@@ -882,12 +850,10 @@ export default function getTheme({
         foreground: pictaLightDark(pictaColors.indigo),
         fontStyle: "bold",
       },
-      // a work-around for clangd’s handling of non-type template parameters
       "typeParameter.readonly:cpp": {
         foreground: pictaLightDark(pictaColors.orange),
-        fontStyle: extended ? "bold underline" : "bold",
+        fontStyle: "bold",
       },
-      // clangd marks non-type dependent names this way
       "unknown.dependentName:cpp": {
         foreground: pictaLightDark(pictaColors.yellow),
       },
@@ -895,9 +861,7 @@ export default function getTheme({
   };
 }
 
-// Convert to hex
-// VS Code doesn't support other formats like hsl, rgba etc.
-function changeColorToHexAlphas(obj: Colors): Colors {
+function changeColorToHexAlphas(obj) {
   if (typeof obj === "object") {
     for (var keys in obj) {
       if (typeof obj[keys] === "object") {
@@ -912,5 +876,3 @@ function changeColorToHexAlphas(obj: Colors): Colors {
   }
   return obj;
 }
-
-module.exports = getTheme;

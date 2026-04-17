@@ -1,9 +1,9 @@
 # Kong VS Code Themes
 
-_Kong_ is a fork of the [Picta VS Code themes](https://github.com/KurtBoehm/picta-vscode-theme) providing much more complete source code highlighting with a modified and extended colour palette:
+_Kong_ is a clean, clear, and vibrant VS Code theme offering excellent source code highlighting with a carefully designed colour palette:
 
 <p align="center">
-  <a title="Colour Swatch" href="http://github.com/KurtBoehm/picta-vscode-theme"><img src="https://raw.githubusercontent.com/KurtBoehm/picta-vscode-theme/refs/heads/main/gh/swatch.png" alt="Colour Swatch" width="50%" /></a>
+  <a title="Colour Swatch" href="https://github.com/zeaphoo/kong-vscode-theme"><img src="https://raw.githubusercontent.com/zeaphoo/kong-vscode-theme/main/gh/swatch.png" alt="Colour Swatch" width="50%" /></a>
 </p>
 
 These colours have the following general meanings:
@@ -21,12 +21,7 @@ These colours have the following general meanings:
 | Purple | Concepts (C++)     | **new colour**                                                 |
 | Pink   | Modules/Namespaces | more reddish than GitHub pink to make space for Picta purple   |
 
-Furthermore, _italic_ identifiers represent member variables/functions (attributes/methods in OOP parlance) and **bold** represents function/type/template parameters.
-The _Extended_ themes additionally underline constants (if the language support is able to determine immutability).
-
-The extended themes look as follows when applied to a C++ program using `clangd`:
-
-![Screenshots](https://raw.githubusercontent.com/KurtBoehm/picta-vscode-theme/refs/heads/main/gh/screenshot.png)
+Furthermore, **bold** represents function/type/template parameters.
 
 ## Install
 
@@ -34,6 +29,4 @@ The extended themes look as follows when applied to a C++ program using `clangd`
 2. Click on the "Install" button.
 3. Then [select a theme](https://code.visualstudio.com/docs/getstarted/themes#_selecting-the-color-theme):
    - `Kong Light`
-   - `Kong Light Extended`
    - `Kong Dark`
-   - `Kong Dark Extended`
